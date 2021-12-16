@@ -6,21 +6,43 @@ class niceDate {
 		else { this.date = date }; 
 	}
 
-	secondsElapsed()
+	seconds()
 	{
-		return Date.now() - this.date.getTime();
-	}			
+		return Math.floor((Date.now() - this.date.getTime()) / 1000); 
+	}
 
-	elapsed(format) {
-		secondsElapsed = Math.floor((Date.now() - this.date.getTime()) / 1000); 
-		prettyString = "";
-		hourInSeconds = 60 * 60; 
+	formattedDate()
+	{
+		let formattedString = ""; 
+		let seconds = this.seconds();
 
-		if(secondsElapsed > hoursInSeconds)
+		if(seconds > (60*60*24)) // at least one day
 		{
-			prettyString += Math.floor(secondsElapsed / hoursInSeconds) + " hours";
+			days = Math.floor(seconds / (60*60*24))
+			if(days > 1) { formattedString += `${days} days `; }
+			else { formattedString += `${days} day `}
+			
+			seconds -= (days*60*60*24); 
 		}
 
+		if(seconds > (60*60)) // at least one hour
+		{
+			hours = Math.floor(seconds / (60*60))
+			formattedString += `${hours}:`;
+			seconds -= (hours*60*60);
+		}
+		else { formattedString += "00:"}
+
+		if(seconds > (60)) // at least one minute
+		{
+			minutes = Math.floor(seconds / (60))
+			if(minutes > 9) { formattedString += `${minutes}`; }
+			else { formattedString += `0${minutes}`; }
+			seconds -= (minutes*60);
+		}
+		else { formattedString += "00"}
+
+		return(formattedString);
 	}
 }
 

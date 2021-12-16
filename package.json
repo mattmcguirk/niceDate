@@ -1,0 +1,19 @@
+{
+  "name": "nicedate",
+  "version": "1.0.0",
+  "description": "A helper class to produce human readable dates and time math in JavaScript.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattmcguirk/niceDate.git"
+  },
+  "author": "Matt McGuirk",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mattmcguirk/niceDate/issues"
+  },
+  "homepage": "https://github.com/mattmcguirk/niceDate#readme"
+}
